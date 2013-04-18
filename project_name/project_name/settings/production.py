@@ -9,6 +9,7 @@ from base import *
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
+import dj_database_url
 
 def get_env_setting(setting):
 	""" Get the environment setting or return exception """
@@ -48,7 +49,7 @@ SERVER_EMAIL = EMAIL_HOST_USER
 
 
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
 ########## END DATABASE CONFIGURATION
 
 
